@@ -1,41 +1,41 @@
 number,letter,number_location,letter_location,position,corrAns,number_mapping,letter_mapping
-4,E,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-6,L,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-3,H,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-6,A,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-5,A,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-4,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-7,P,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-6,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-7,A,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-1,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-1,B,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-8,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-8,P,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-8,B,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-5,L,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-8,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-2,B,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-7,E,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-7,E,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-1,B,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-5,I,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-6,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-2,A,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-6,B,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-4,H,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-6,U,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-6,P,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-3,I,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-3,A,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-2,L,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-8,E,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-2,L,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-1,E,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-5,P,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-8,I,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-5,P,"[-.2, -.2]","[-.1, -.2]",2,f,,F = consonant; J = vowel
-5,U,"[.1, -.2]","[.2, -.2]",1,j,,F = consonant; J = vowel
-7,A,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
-8,L,"[.1, -.2]","[.2, -.2]",1,f,,F = consonant; J = vowel
-4,A,"[-.2, -.2]","[-.1, -.2]",2,j,,F = consonant; J = vowel
+2,P,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+2,I,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+5,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+4,E,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+5,P,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+7,H,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+5,E,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+5,I,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+4,U,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+5,B,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+3,A,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+1,U,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+7,H,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+5,P,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+4,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+5,A,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+1,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+4,A,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+2,E,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+6,H,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+5,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+3,L,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+7,B,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+1,H,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+1,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+8,U,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+7,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+4,H,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+6,A,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+8,U,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+6,E,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+1,P,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+2,L,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+6,L,"[-.2, -.2]","[-.1, -.2]",2,f,F = odd; J = even,F = consonant; J = vowel
+4,E,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+5,I,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+7,B,"[.1, -.2]","[.2, -.2]",1,f,F = odd; J = even,F = consonant; J = vowel
+6,I,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel
+8,A,"[.1, -.2]","[.2, -.2]",1,j,F = odd; J = even,F = consonant; J = vowel
+1,A,"[-.2, -.2]","[-.1, -.2]",2,j,F = odd; J = even,F = consonant; J = vowel

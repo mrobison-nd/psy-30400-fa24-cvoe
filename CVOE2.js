@@ -148,7 +148,7 @@ var text_8;
 var numberInstruxClock;
 var text_2;
 var key_resp_2;
-var trialClock;
+var trial_routineClock;
 var line;
 var line_2;
 var letter_text;
@@ -256,8 +256,8 @@ async function experimentInit() {
   
   key_resp_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  // Initialize components for Routine "trial"
-  trialClock = new util.Clock();
+  // Initialize components for Routine "trial_routine"
+  trial_routineClock = new util.Clock();
   line = new visual.ShapeStim ({
     win: psychoJS.window, name: 'line', 
     vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
@@ -777,9 +777,9 @@ function number_practiceLoopBegin(number_practiceLoopScheduler, snapshot) {
     for (const thisNumber_practice of number_practice) {
       snapshot = number_practice.getSnapshot();
       number_practiceLoopScheduler.add(importConditions(snapshot));
-      number_practiceLoopScheduler.add(trialRoutineBegin(snapshot));
-      number_practiceLoopScheduler.add(trialRoutineEachFrame());
-      number_practiceLoopScheduler.add(trialRoutineEnd(snapshot));
+      number_practiceLoopScheduler.add(trial_routineRoutineBegin(snapshot));
+      number_practiceLoopScheduler.add(trial_routineRoutineEachFrame());
+      number_practiceLoopScheduler.add(trial_routineRoutineEnd(snapshot));
       number_practiceLoopScheduler.add(number_practiceLoopEndIteration(number_practiceLoopScheduler, snapshot));
     }
     
@@ -840,9 +840,9 @@ function letter_practiceLoopBegin(letter_practiceLoopScheduler, snapshot) {
     for (const thisLetter_practice of letter_practice) {
       snapshot = letter_practice.getSnapshot();
       letter_practiceLoopScheduler.add(importConditions(snapshot));
-      letter_practiceLoopScheduler.add(trialRoutineBegin(snapshot));
-      letter_practiceLoopScheduler.add(trialRoutineEachFrame());
-      letter_practiceLoopScheduler.add(trialRoutineEnd(snapshot));
+      letter_practiceLoopScheduler.add(trial_routineRoutineBegin(snapshot));
+      letter_practiceLoopScheduler.add(trial_routineRoutineEachFrame());
+      letter_practiceLoopScheduler.add(trial_routineRoutineEnd(snapshot));
       letter_practiceLoopScheduler.add(letter_practiceLoopEndIteration(letter_practiceLoopScheduler, snapshot));
     }
     
@@ -903,9 +903,9 @@ function mixed_practiceLoopBegin(mixed_practiceLoopScheduler, snapshot) {
     for (const thisMixed_practice of mixed_practice) {
       snapshot = mixed_practice.getSnapshot();
       mixed_practiceLoopScheduler.add(importConditions(snapshot));
-      mixed_practiceLoopScheduler.add(trialRoutineBegin(snapshot));
-      mixed_practiceLoopScheduler.add(trialRoutineEachFrame());
-      mixed_practiceLoopScheduler.add(trialRoutineEnd(snapshot));
+      mixed_practiceLoopScheduler.add(trial_routineRoutineBegin(snapshot));
+      mixed_practiceLoopScheduler.add(trial_routineRoutineEachFrame());
+      mixed_practiceLoopScheduler.add(trial_routineRoutineEnd(snapshot));
       mixed_practiceLoopScheduler.add(mixed_practiceLoopEndIteration(mixed_practiceLoopScheduler, snapshot));
     }
     
@@ -966,9 +966,9 @@ function trial_loopLoopBegin(trial_loopLoopScheduler, snapshot) {
     for (const thisTrial_loop of trial_loop) {
       snapshot = trial_loop.getSnapshot();
       trial_loopLoopScheduler.add(importConditions(snapshot));
-      trial_loopLoopScheduler.add(trialRoutineBegin(snapshot));
-      trial_loopLoopScheduler.add(trialRoutineEachFrame());
-      trial_loopLoopScheduler.add(trialRoutineEnd(snapshot));
+      trial_loopLoopScheduler.add(trial_routineRoutineBegin(snapshot));
+      trial_loopLoopScheduler.add(trial_routineRoutineEachFrame());
+      trial_loopLoopScheduler.add(trial_routineRoutineEnd(snapshot));
       trial_loopLoopScheduler.add(trial_loopLoopEndIteration(trial_loopLoopScheduler, snapshot));
     }
     
@@ -1009,20 +1009,20 @@ function trial_loopLoopEndIteration(scheduler, snapshot) {
 }
 
 
-var trialMaxDurationReached;
+var trial_routineMaxDurationReached;
 var _key_resp_allKeys;
-var trialMaxDuration;
-var trialComponents;
-function trialRoutineBegin(snapshot) {
+var trial_routineMaxDuration;
+var trial_routineComponents;
+function trial_routineRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
     
-    //--- Prepare to start Routine 'trial' ---
+    //--- Prepare to start Routine 'trial_routine' ---
     t = 0;
-    trialClock.reset(); // clock
+    trial_routineClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    trialMaxDurationReached = false;
+    trial_routineMaxDurationReached = false;
     // update component parameters for each repeat
     letter_text.setPos(letter_location);
     letter_text.setText(letter);
@@ -1033,19 +1033,19 @@ function trialRoutineBegin(snapshot) {
     _key_resp_allKeys = [];
     text.setText(letter_mapping);
     text_11.setText(number_mapping);
-    psychoJS.experiment.addData('trial.started', globalClock.getTime());
-    trialMaxDuration = null
+    psychoJS.experiment.addData('trial_routine.started', globalClock.getTime());
+    trial_routineMaxDuration = null
     // keep track of which components have finished
-    trialComponents = [];
-    trialComponents.push(line);
-    trialComponents.push(line_2);
-    trialComponents.push(letter_text);
-    trialComponents.push(number_text);
-    trialComponents.push(key_resp);
-    trialComponents.push(text);
-    trialComponents.push(text_11);
+    trial_routineComponents = [];
+    trial_routineComponents.push(line);
+    trial_routineComponents.push(line_2);
+    trial_routineComponents.push(letter_text);
+    trial_routineComponents.push(number_text);
+    trial_routineComponents.push(key_resp);
+    trial_routineComponents.push(text);
+    trial_routineComponents.push(text_11);
     
-    for (const thisComponent of trialComponents)
+    for (const thisComponent of trial_routineComponents)
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
     return Scheduler.Event.NEXT;
@@ -1053,11 +1053,11 @@ function trialRoutineBegin(snapshot) {
 }
 
 
-function trialRoutineEachFrame() {
+function trial_routineRoutineEachFrame() {
   return async function () {
-    //--- Loop for each frame of Routine 'trial' ---
+    //--- Loop for each frame of Routine 'trial_routine' ---
     // get current time
-    t = trialClock.getTime();
+    t = trial_routineClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
@@ -1156,7 +1156,7 @@ function trialRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of trialComponents)
+    for (const thisComponent of trial_routineComponents)
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
         break;
@@ -1172,15 +1172,15 @@ function trialRoutineEachFrame() {
 }
 
 
-function trialRoutineEnd(snapshot) {
+function trial_routineRoutineEnd(snapshot) {
   return async function () {
-    //--- Ending Routine 'trial' ---
-    for (const thisComponent of trialComponents) {
+    //--- Ending Routine 'trial_routine' ---
+    for (const thisComponent of trial_routineComponents) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
     }
-    psychoJS.experiment.addData('trial.stopped', globalClock.getTime());
+    psychoJS.experiment.addData('trial_routine.stopped', globalClock.getTime());
     // update the trial handler
     if (currentLoop instanceof MultiStairHandler) {
       currentLoop.addResponse(key_resp.corr, level);
@@ -1193,7 +1193,7 @@ function trialRoutineEnd(snapshot) {
         }
     
     key_resp.stop();
-    // the Routine "trial" was not non-slip safe, so reset the non-slip timer
+    // the Routine "trial_routine" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
