@@ -7,6 +7,7 @@
 let expName = 'CVOE2';  // from the Builder filename that created this script
 let expInfo = {
     'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
+    'name': '',
 };
 
 // Start code blocks for 'Before Experiment'
@@ -130,8 +131,6 @@ async function updateInfo() {
 
 
 var instructionsClock;
-var line_3;
-var line_4;
 var text_6;
 var key_resp_5;
 var text_7;
@@ -163,46 +162,16 @@ var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "instructions"
   instructionsClock = new util.Clock();
-  line_3 = new visual.ShapeStim ({
-    win: psychoJS.window, name: 'line_3', 
-    vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 0.0, 
-    pos: [0, 0], 
-    draggable: false, 
-    anchor: 'center',
-    lineWidth: 10.0, 
-    colorSpace: 'rgb',
-    lineColor: new util.Color('black'),
-    fillColor: new util.Color('black'),
-    fillColor: 'black',
-    opacity: undefined, depth: 0, interpolate: true,
-  });
-  
-  line_4 = new visual.ShapeStim ({
-    win: psychoJS.window, name: 'line_4', 
-    vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 90.0, 
-    pos: [0, 0], 
-    draggable: false, 
-    anchor: 'center',
-    lineWidth: 10.0, 
-    colorSpace: 'rgb',
-    lineColor: new util.Color('black'),
-    fillColor: new util.Color('black'),
-    fillColor: 'black',
-    opacity: undefined, depth: -1, interpolate: true,
-  });
-  
   text_6 = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_6',
     text: 'On each trial of this task, you will see a number-letter combination in one of the four quadrants, like shown above.\n\nSoon you will see some instructions about how to respond to these. Press the spacebar to continue...',
     font: 'Arial',
     units: undefined, 
-    pos: [0, (- 0.45)], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, (- 0.3)], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: undefined,
-    depth: -2.0 
+    depth: 0.0 
   });
   
   key_resp_5 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -216,7 +185,7 @@ async function experimentInit() {
     pos: [(- 0.1), 0.2], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: undefined,
-    depth: -4.0 
+    depth: -2.0 
   });
   
   text_8 = new visual.TextStim({
@@ -228,7 +197,7 @@ async function experimentInit() {
     pos: [(- 0.2), 0.2], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: undefined,
-    depth: -5.0 
+    depth: -3.0 
   });
   
   // Initialize components for Routine "numberInstrux"
@@ -424,8 +393,6 @@ function instructionsRoutineBegin(snapshot) {
     instructionsMaxDuration = null
     // keep track of which components have finished
     instructionsComponents = [];
-    instructionsComponents.push(line_3);
-    instructionsComponents.push(line_4);
     instructionsComponents.push(text_6);
     instructionsComponents.push(key_resp_5);
     instructionsComponents.push(text_7);
@@ -447,26 +414,6 @@ function instructionsRoutineEachFrame() {
     t = instructionsClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    
-    // *line_3* updates
-    if (t >= 0.0 && line_3.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      line_3.tStart = t;  // (not accounting for frame time here)
-      line_3.frameNStart = frameN;  // exact frame index
-      
-      line_3.setAutoDraw(true);
-    }
-    
-    
-    // *line_4* updates
-    if (t >= 0.0 && line_4.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      line_4.tStart = t;  // (not accounting for frame time here)
-      line_4.frameNStart = frameN;  // exact frame index
-      
-      line_4.setAutoDraw(true);
-    }
-    
     
     // *text_6* updates
     if (t >= 0.0 && text_6.status === PsychoJS.Status.NOT_STARTED) {
