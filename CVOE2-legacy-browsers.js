@@ -7,7 +7,6 @@
 let expName = 'CVOE2';  // from the Builder filename that created this script
 let expInfo = {
     'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
-    'name': '',
 };
 
 // Start code blocks for 'Before Experiment'
@@ -71,10 +70,10 @@ flowScheduler.add(mixed_practiceLoopEnd);
 flowScheduler.add(realInstruxRoutineBegin());
 flowScheduler.add(realInstruxRoutineEachFrame());
 flowScheduler.add(realInstruxRoutineEnd());
-const trial_loopLoopScheduler = new Scheduler(psychoJS);
-flowScheduler.add(trial_loopLoopBegin(trial_loopLoopScheduler));
-flowScheduler.add(trial_loopLoopScheduler);
-flowScheduler.add(trial_loopLoopEnd);
+const trialsLoopScheduler = new Scheduler(psychoJS);
+flowScheduler.add(trialsLoopBegin(trialsLoopScheduler));
+flowScheduler.add(trialsLoopScheduler);
+flowScheduler.add(trialsLoopEnd);
 
 
 flowScheduler.add(exitRoutineRoutineBegin());
@@ -123,7 +122,7 @@ async function updateInfo() {
 
   
   psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
-  psychoJS.experiment.field_separator = '\t';
+  psychoJS.experiment.field_separator = ',';
 
 
   return Scheduler.Event.NEXT;
@@ -167,7 +166,7 @@ async function experimentInit() {
   line_3 = new visual.ShapeStim ({
     win: psychoJS.window, name: 'line_3', 
     vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 45.0, 
+    ori: 0.0, 
     pos: [0, 0], 
     draggable: false, 
     anchor: 'center',
@@ -182,7 +181,7 @@ async function experimentInit() {
   line_4 = new visual.ShapeStim ({
     win: psychoJS.window, name: 'line_4', 
     vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 135.0, 
+    ori: 90.0, 
     pos: [0, 0], 
     draggable: false, 
     anchor: 'center',
@@ -253,7 +252,7 @@ async function experimentInit() {
   line = new visual.ShapeStim ({
     win: psychoJS.window, name: 'line', 
     vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 45.0, 
+    ori: 0.0, 
     pos: [0, 0], 
     draggable: false, 
     anchor: 'center',
@@ -268,7 +267,7 @@ async function experimentInit() {
   line_2 = new visual.ShapeStim ({
     win: psychoJS.window, name: 'line_2', 
     vertices: [[-[0.5, 0.5][0]/2.0, 0], [+[0.5, 0.5][0]/2.0, 0]],
-    ori: 135.0, 
+    ori: 90.0, 
     pos: [0, 0], 
     draggable: false, 
     anchor: 'center',
@@ -392,38 +391,6 @@ async function experimentInit() {
     depth: 0.0 
   });
   
-  // Disable downloading results to browser
-  psychoJS._saveResults = 0; 
-  
-  // Generate filename for results
-  let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
-  
-  // Extract data object from experiment
-  let dataObj = psychoJS._experiment._trialsData;
-  
-  // Convert data object to CSV
-  let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
-      return Object.values(it).toString()
-  }).join('\n')
-  
-  // Send data to OSF via DataPipe
-  console.log('Saving data...');
-  fetch('https://pipe.jspsych.org/api/data', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          Accept: '*/*',
-      },
-      body: JSON.stringify({
-          experimentID: 'hyptu4FGLlUH', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
-          filename: filename,
-          data: data,
-      }),
-  }).then(response => response.json()).then(data => {
-      // Log response and force experiment end
-      console.log(data);
-      quitPsychoJS();
-  })
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
   routineTimer = new util.CountdownTimer();  // to track time remaining of each (non-slip) routine
@@ -943,31 +910,31 @@ function mixed_practiceLoopEndIteration(scheduler, snapshot) {
 }
 
 
-var trial_loop;
-function trial_loopLoopBegin(trial_loopLoopScheduler, snapshot) {
+var trials;
+function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
     
     // set up handler to look after randomisation of conditions etc
-    trial_loop = new TrialHandler({
+    trials = new TrialHandler({
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
       trialList: 'trialList.csv',
-      seed: undefined, name: 'trial_loop'
+      seed: undefined, name: 'trials'
     });
-    psychoJS.experiment.addLoop(trial_loop); // add the loop to the experiment
-    currentLoop = trial_loop;  // we're now the current loop
+    psychoJS.experiment.addLoop(trials); // add the loop to the experiment
+    currentLoop = trials;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    trial_loop.forEach(function() {
-      snapshot = trial_loop.getSnapshot();
+    trials.forEach(function() {
+      snapshot = trials.getSnapshot();
     
-      trial_loopLoopScheduler.add(importConditions(snapshot));
-      trial_loopLoopScheduler.add(trial_routineRoutineBegin(snapshot));
-      trial_loopLoopScheduler.add(trial_routineRoutineEachFrame());
-      trial_loopLoopScheduler.add(trial_routineRoutineEnd(snapshot));
-      trial_loopLoopScheduler.add(trial_loopLoopEndIteration(trial_loopLoopScheduler, snapshot));
+      trialsLoopScheduler.add(importConditions(snapshot));
+      trialsLoopScheduler.add(trial_routineRoutineBegin(snapshot));
+      trialsLoopScheduler.add(trial_routineRoutineEachFrame());
+      trialsLoopScheduler.add(trial_routineRoutineEnd(snapshot));
+      trialsLoopScheduler.add(trialsLoopEndIteration(trialsLoopScheduler, snapshot));
     });
     
     return Scheduler.Event.NEXT;
@@ -975,9 +942,9 @@ function trial_loopLoopBegin(trial_loopLoopScheduler, snapshot) {
 }
 
 
-async function trial_loopLoopEnd() {
+async function trialsLoopEnd() {
   // terminate loop
-  psychoJS.experiment.removeLoop(trial_loop);
+  psychoJS.experiment.removeLoop(trials);
   // update the current loop from the ExperimentHandler
   if (psychoJS.experiment._unfinishedLoops.length>0)
     currentLoop = psychoJS.experiment._unfinishedLoops.at(-1);
@@ -987,7 +954,7 @@ async function trial_loopLoopEnd() {
 }
 
 
-function trial_loopLoopEndIteration(scheduler, snapshot) {
+function trialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
   return async function () {
     if (typeof snapshot !== 'undefined') {
@@ -1627,6 +1594,38 @@ function exitRoutineRoutineBegin(snapshot) {
     routineTimer.add(1.000000);
     exitRoutineMaxDurationReached = false;
     // update component parameters for each repeat
+    // Disable downloading results to browser
+    psychoJS._saveResults = 0; 
+    
+    // Generate filename for results
+    let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
+    
+    // Extract data object from experiment
+    let dataObj = psychoJS._experiment._trialsData;
+    
+    // Convert data object to CSV
+    let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
+        return Object.values(it).toString()
+    }).join('\n')
+    
+    // Send data to OSF via DataPipe
+    console.log('Saving data...');
+    fetch('https://pipe.jspsych.org/api/data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: '*/*',
+        },
+        body: JSON.stringify({
+            experimentID: 'hyptu4FGLlUH', // ⭑ UPDATE WITH YOUR DATAPIPE EXPERIMENT ID ⭑
+            filename: filename,
+            data: data,
+        }),
+    }).then(response => response.json()).then(data => {
+        // Log response and force experiment end
+        console.log(data);
+        quitPsychoJS();
+    })
     psychoJS.experiment.addData('exitRoutine.started', globalClock.getTime());
     exitRoutineMaxDuration = null
     // keep track of which components have finished
